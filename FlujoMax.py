@@ -65,7 +65,7 @@ def printNetInc(N:dict):
     for v in N:
         print(v, ': ', N[v])
 
-printNetInc(N) #jalo
+#printNetInc(N) #jalo
 
 def maxF(N:dict): #1
     goal = False #Bandera de finalizacion
@@ -191,22 +191,39 @@ def resumeFK(E: dict, N:dict):
 
     print('Flujo Maximo: ', f)
 
-    
-            
-    
 
-#Test 1 yeah!
-maxF(N)
+#maxF(N)
+#printNetInc(N)
 
-printNetInc(N)         
-                
-                
-                  
+N2 = { 'u': [['u',1,3,1],
+             ['u',2,4,4],
+             [3,'u',3,1]],
+       
+       1: [['u',1,3,1],
+           [1,4,2,1]],
+       
+       2: [['u',2,4,4],
+           [2,4,1,1],
+           [2,5,3,3]],
 
+       3: [[3,'u',3,1],
+           [5,3,2,2],
+           [3,'v',5,1]],
 
+       4: [[1,4,2,1],
+           [2,4,1,1],
+           [4,'v',3,2]],
 
+       5: [[2,5,3,3],
+           [5,3,2,2],
+           [5,'v',1,1]],
 
+       'v': [[4,'v',3,2],
+             [5,'v',1,1],
+             [3,'w',5,1]]
+    }
 
-
-
+printNetInc(N2) #jalo
+maxF(N2)
+printNetInc(N2)
 
