@@ -100,8 +100,8 @@ def maxF(N:dict): #1
 
         
         
-        print('E: ', E)
-        print('L: ', L)    
+        #print('E: ', E)
+        #print('L: ', L)    
         #Actualizar flujo
         #E describe un semipath augmenting desde v
 
@@ -159,7 +159,40 @@ def maxF(N:dict): #1
                 v = w #5 end
                 #A huevo cuidado con variables residuales
                 #Los buenos print('Test')
-                
+
+    print('Resumen')
+    resumeFK(E,N)
+
+def resumeFK(E: dict, N:dict):
+    X = set()
+    for u in E:
+        X.add(u)
+
+    Y = set()
+    for v in N:
+        if v not in X:
+            Y.add(v)
+
+    K = []
+    for x in X:        
+        for i in range(len(N[x])):
+            if N[x][i][1] in Y:                
+                K.append(N[x][i])
+
+    print('X: ', X)
+    print('Y: ', Y)
+    print("Donde el corte K[X,Y], donde (Y es X gorro)")
+    print('Corte minimo')
+    print('K: ', K)
+
+    f = 0
+    for e in K:
+        f += e[3]
+
+    print('Flujo Maximo: ', f)
+
+    
+            
     
 
 #Test 1 yeah!
